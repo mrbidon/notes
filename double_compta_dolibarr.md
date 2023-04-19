@@ -1,7 +1,7 @@
-# Comptabilité partie double avec Dolibarr (France)
+# Comptabilité en partie double avec Dolibarr (France)
 
  ## Introduction
-Système de comptabilité fiable inventé par les Vénitiens. Il s'agit que toutes les opérations fassent l'objet d'un débit dans un ou plusieurs comptes et d'un crédit dans un ou plusieurs autres comptes. De manière à ce qu'à tout moment la somme des débits est égale à la somme des crédits, on appelle cela la balance comptable. Cela permet plus de contrôle et permet d'enregistrer des dettes et des opérations futures, ce qui est impossible dans une comptabilité simple. [source Wikipédia](https://fr.wikipedia.org/wiki/Comptabilit%C3%A9_en_partie_double)
+La comptabilité en partie double (où compte de contrepartie) est un système fiable inventé par les Vénitiens. Il s'agit que toutes les opérations fassent l'objet d'un débit dans un ou plusieurs comptes et d'un crédit dans un ou plusieurs autres comptes. De manière à ce qu'à tout moment la somme des débits est égale à la somme des crédits, on appelle cela la balance comptable. Cela permet plus de contrôle et permet d'enregistrer des dettes et des opérations futures, ce qui est impossible dans une comptabilité simple. [source Wikipédia](https://fr.wikipedia.org/wiki/Comptabilit%C3%A9_en_partie_double)
 
 
 ## Notion :
