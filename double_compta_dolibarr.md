@@ -29,10 +29,10 @@ Avant toute chose, il est nécessaire de configurer le logiciel
 
 ### Configuration avancée
 - Je veux que les clients aient un code propre comptable personnalisé commençant par 411
-        - Aller dans le menu Accueil -> Configuration -> Modules / Application
-        - Cliquez sur l'icône en forme d'engrenage, choisir selon le type de code personnalisé voulu :
-            Aquarium : 411 + code client ou 401 + code fournisseur
-            Digitaria : 411 + nom client ou 401 + nom fournisseur
+  - Aller dans le menu Accueil -> Configuration -> Modules / Application
+  - Cliquez sur l'icône en forme d'engrenage, choisir selon le type de code personnalisé voulu :
+    - Aquarium : 411 + code client ou 401 + code fournisseur
+    - Digitaria : 411 + nom client ou 401 + nom fournisseur
 
 ### Saisir des opérations comptables
 La première chose à comprendre, c'est que l'enregistrement d'une opération comptable est indépendante du reste du logiciel.
