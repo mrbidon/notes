@@ -38,7 +38,7 @@ Avant toute chose, il est nécessaire de configurer le logiciel
 La première chose à comprendre, c'est que l'enregistrement d'une opération comptable est indépendante du reste du logiciel.
 
 #### Saisir une opération comptable
-    Aller dans le menu compta et
+Aller dans le menu compta et cliquer sur l'icone + et suivez les insctructions
     
 ### Editer des opérations dans des journaux :
 - Si il n'y en a pas beaucoup : supprimer et ajouter à la main l'opération qui correspond
