@@ -28,11 +28,31 @@ Avant toute chose, il est nécessaire de configurer le logiciel
 
 
 ### Configuration avancée
-- Je veux que les clients aient un code propre comptable personnalisé commençant par 411
-  - Aller dans le menu Accueil -> Configuration -> Modules / Application
-  - Cliquez sur l'icône en forme d'engrenage, choisir selon le type de code personnalisé voulu :
-    - Aquarium : 411 + code client ou 401 + code fournisseur
-    - Digitaria : 411 + nom client ou 401 + nom fournisseur
+## Je veux que les codes clients ou fournisseurs soient la même chose que les code comptables 411 ou 401
+
+A la base ce comportement n'est pas possible, j'ai donc soumis un patch qui sera intégré aux prochaines versions dolibar. Si vous souhaitez faire fonctionner ce patch en avance de phase suivez les étapes suivantes :
+  - sauvegarder votre base de donnée
+  - Updater les codes existants via la requête vers des codes en 401 (à adapter)
+```
+   -- mise à jour du format code_client vers le format comptable 
+   UPDATE llx_societe SET code_client = CONCAT('411', LPAD(SUBSTR(code_client, 8), 5,'0') )
+   WHERE code_client IS NOT NULL AND code_fournisseur  IS NULL;  
+            
+   -- mise à jour du format code_fournisseur vers le format comptable
+   UPDATE llx_societe SET code_fournisseur = CONCAT('401', LPAD(SUBSTR(code_fournisseur, 8), 5,'0') ) 
+   WHERE code_client IS NULL AND code_fournisseur  IS NOT NULL; 
+   
+   -- insertion du paramètre caché permettant d'activer la recopie du code client ou fournisseur sans préfix
+    INSERT INTO llx_const (rowid, name, entity, value, type, visible, note, tms)
+    VALUES(93, 'COMPANY_AQUARIUM_NO_PREFIX', 1, 'yes', 'yesno', 0, '', '2023-04-27 00:54:28.496');
+```
+
+  - ajouter les modifications à la main ou via cherry-pick en modifiant les fichiers selon la pull request suivante https://github.com/Dolibarr/dolibarr/pull/24705/files
+    - `htdocs/core/modules/societe/mod_codecompta_aquarium.php` 
+    - `htdocs/langs/en_US/admin.lang`       
+  - activer "Elephant" avec la valeur "411{00000}" pour les clients "401{00000}" pour les fournisseurs
+  - activer "Aquarium", vérifier que le message est bien affiché : "Do not use prefix, only copy cutomer or supplier code = yes" 
+  - c'est bon maintenant les codes compta seront utilisé partout dans l'application
 
 ### Saisir des opérations comptables
 La première chose à comprendre, c'est que l'enregistrement d'une opération comptable est indépendante du reste du logiciel.
