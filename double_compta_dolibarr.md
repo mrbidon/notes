@@ -43,8 +43,8 @@ A la base ce comportement n'est pas possible, j'ai donc soumis un patch qui sera
    WHERE code_client IS NULL AND code_fournisseur  IS NOT NULL; 
    
    -- insertion du paramètre caché permettant d'activer la recopie du code client ou fournisseur sans préfix
-    INSERT INTO llx_const (rowid, name, entity, value, type, visible, note, tms)
-    VALUES(93, 'COMPANY_AQUARIUM_NO_PREFIX', 1, 'yes', 'yesno', 0, '', '2023-04-27 00:54:28.496');
+    INSERT INTO llx_const (name, entity, value, type, visible, note, tms)
+    VALUES('COMPANY_AQUARIUM_NO_PREFIX', 1, '1', 'chaine', 0, '', '2023-04-27 00:54:28.496');
 ```
 
   - ajouter les modifications à la main ou via cherry-pick en modifiant les fichiers selon la pull request suivante https://github.com/Dolibarr/dolibarr/pull/24705/files
