@@ -28,7 +28,7 @@ Avant toute chose, il est nécessaire de configurer le logiciel
 
 
 ### Configuration avancée
-## Je veux que les codes clients ou fournisseurs soient la même chose que les code comptables 411 ou 401
+#### Je veux que les codes clients ou fournisseurs soient la même chose que les code comptables 411 ou 401
 
 A la base ce comportement n'est pas possible, j'ai donc soumis un patch qui sera intégré aux prochaines versions dolibar. Si vous souhaitez faire fonctionner ce patch en avance de phase suivez les étapes suivantes :
   - sauvegarder votre base de donnée
