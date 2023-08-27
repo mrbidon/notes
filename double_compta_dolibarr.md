@@ -37,10 +37,16 @@ A la base ce comportement n'est pas possible, j'ai donc soumis un patch qui sera
    -- mise à jour du format code_client vers le format comptable 
    UPDATE llx_societe SET code_client = CONCAT('411', LPAD(SUBSTR(code_client, 8), 5,'0') )
    WHERE code_client IS NOT NULL AND code_fournisseur  IS NULL;  
-            
+
+   -- copie du code_client en code_comptable
+   UPDATE llx_societe SET code_compta = code_client WHERE code_compta IS NULL;
+         
    -- mise à jour du format code_fournisseur vers le format comptable
    UPDATE llx_societe SET code_fournisseur = CONCAT('401', LPAD(SUBSTR(code_fournisseur, 8), 5,'0') ) 
-   WHERE code_client IS NULL AND code_fournisseur  IS NOT NULL; 
+   WHERE code_client IS NULL AND code_fournisseur  IS NOT NULL;
+
+   -- copie du code_fournisseur en code_compta_fournisseur 
+   UPDATE llx_societe SET code_compta_fournisseur = code_fournisseur WHERE  code_compta_fournisseur IS NULL;   
    
    -- insertion du paramètre caché permettant d'activer la recopie du code client ou fournisseur sans préfix
     INSERT INTO llx_const (name, entity, value, type, visible, note, tms)
